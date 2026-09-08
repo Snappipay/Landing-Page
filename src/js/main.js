@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         message.style.display = 'none';
         
         try {
-          const response = await fetch('http://localhost:8080/mailing-list/subscribe', {
+          const response = await fetch('https://api.snappipay.xyz/api/mailing-list/subscribe', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
