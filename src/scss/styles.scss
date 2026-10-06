@@ -197,11 +197,41 @@ body {
     margin-right: 20px;
 }
 
+.multichain-logos .logos a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.multichain-logos .logos .chain-link {
+    margin-right: 8px;
+}
+
 .multichain-logos .logos .bot-chain-logo {
     height: 26px;
     width: auto;
     object-fit: contain;
     margin-right: 20px;
+}
+
+.multichain-logos .logos .bot-chain-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 2px;
+}
+
+.multichain-logos .logos .bot-chain-links a {
+    color: #d1d5db;
+    font-size: 11px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.multichain-logos .logos .bot-chain-links a:hover {
+    color: #ffffff;
 }
 
 .multichain-logos .logos{
@@ -302,6 +332,10 @@ body {
     border-left: 1px solid #4b5563;
 }
 
+.bot-chain-card-link {
+    display: inline-block;
+}
+
 .bot-chain-card-logo {
     width: auto;
     height: 40px;
@@ -310,6 +344,26 @@ body {
     filter: brightness(0) saturate(100%) invert(54%) sepia(52%) saturate(520%) hue-rotate(220deg) brightness(95%) contrast(110%);
     opacity: 0.95;
     margin-bottom: 10px;
+}
+
+.bot-chain-card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 14px;
+}
+
+.bot-chain-card-links a {
+    color: #a5b4fc;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.bot-chain-card-links a:hover {
+    color: #dfe7ff;
 }
 
 .card h3{
