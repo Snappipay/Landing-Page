@@ -58,6 +58,56 @@ body {
     backdrop-filter: blur(8px);
   }
 
+  .nav-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .monad-brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    background: rgba(167, 139, 250, 0.08);
+    color: #f5f3ff;
+    text-decoration: none;
+    font-family: Manrope;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+
+  .monad-brand-pill:hover {
+    border-color: rgba(167, 139, 250, 0.75);
+    background: rgba(167, 139, 250, 0.16);
+    transform: translateY(-1px);
+    color: #fff;
+  }
+
+  .monad-brand-mark,
+  .monad-mark,
+  .monad-card-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    color: #a78bfa;
+  }
+
+  .monad-brand-mark svg,
+  .monad-mark svg,
+  .monad-card-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
   .navbar-nav .nav-link {
     color: #D1D5DB !important;
     font-family: Manrope;
@@ -207,6 +257,24 @@ body {
     margin-right: 8px;
 }
 
+.multichain-logos .logos .monad-link {
+    margin-right: 18px;
+    padding: 7px 12px;
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    border-radius: 999px;
+    background: rgba(167, 139, 250, 0.08);
+    color: #f5f3ff;
+}
+
+.monad-wordmark {
+    font-family: Manrope;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #f5f3ff;
+}
+
 .multichain-logos .logos .bot-chain-logo {
     height: 26px;
     width: auto;
@@ -344,6 +412,16 @@ body {
     filter: brightness(0) saturate(100%) invert(54%) sepia(52%) saturate(520%) hue-rotate(220deg) brightness(95%) contrast(110%);
     opacity: 0.95;
     margin-bottom: 10px;
+}
+
+.monad-card-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    color: #a78bfa;
+    margin-bottom: 8px;
 }
 
 .bot-chain-card-links {
@@ -1526,4 +1604,125 @@ body {
     .section2{
         margin-top: 20px;;
     }
+}
+
+
+$monad: #836EF9;
+
+// --- Fixes to existing rules ---
+body { font-family: 'Manrope', Arial, sans-serif; height: auto; min-height: 100vh; }
+.scroll-section { height: 300vh; }            // you have 3 rows, not 4, so no dead scroll
+.moon-bg { height: auto; min-height: 400px; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid $monad; outline-offset: 3px;
+}
+
+// --- Hero polish ---
+.header::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(40% 50% at 78% 35%, rgba($monad, .18), transparent 70%);
+}
+.hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.hero-badges .hero-partner-badge { margin-bottom: 0; }
+.hero-partner-badge.monad-badge { border-color: rgba($monad, .55); background: rgba($monad, .12); color: #fff; }
+.hero-partner-badge img { height: 12px; width: auto; }
+.app-mockup img { filter: drop-shadow(0 30px 60px rgba($monad, .35)); }
+// Chain logos in the hero row: plain logo + link, no pill/background
+.multichain-logos .logos .chain-link,
+.multichain-logos .logos .monad-link {
+  display: inline-flex; align-items: center;
+  padding: 0; margin-right: 20px;
+  border: 0; border-radius: 0; background: none;
+  opacity: .9; transition: opacity .2s;
+  &:hover { opacity: 1; background: none; }
+  img { height: 26px; width: auto; margin: 0; object-fit: contain; }
+}
+
+// --- Card polish (keeps your dividers, adds a quiet hover) ---
+.card { transition: background .25s; &:hover { background: rgba(255,255,255,.025); } }
+.card img { transition: transform .25s; }
+.card:hover img { transform: translateY(-2px); }
+
+// --- Monad settlement section ---
+.section-monad { margin-top: 150px; }
+.monad-flow {
+  display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 0;
+  max-width: 960px; margin: 0 auto 60px;
+}
+.flow-node {
+  text-align: center; padding: 28px 20px; border: 1px solid #2a2a2a; border-radius: 16px;
+  background: rgba(255,255,255,.02); font-family: Manrope;
+  span { display: block; color: #6b7280; font-size: 13px; margin-bottom: 6px; }
+  strong { display: block; color: #fff; font-weight: 500; font-size: 23px; line-height: 140%; }
+  small { display: block; color: #9ca3af; font-size: 14px; margin-top: 4px; }
+}
+.flow-node--monad {
+  border-color: rgba($monad, .6);
+  background: radial-gradient(70% 90% at 50% 0%, rgba($monad, .22), rgba($monad, .04));
+  box-shadow: 0 0 50px rgba($monad, .25);
+  img { height: 34px; width: auto; margin-bottom: 8px; }
+}
+.flow-link {
+  width: 60px; height: 2px; position: relative; overflow: hidden;
+  background: linear-gradient(90deg, #2a2a2a, rgba($monad, .8), #2a2a2a);
+  &::after {
+    content: ''; position: absolute; top: 0; left: -30%; width: 30%; height: 100%; background: #fff;
+    animation: flow-pulse 2.4s ease-in-out infinite;
+  }
+}
+@keyframes flow-pulse { to { left: 100%; } }
+.monad-points .card { border-left: 1px solid #4b5563; }
+.monad-points .col-md-4:first-child .card { border-left: none; }
+.monad-cta { text-align: center; margin-top: 40px; }
+.monad-cta a { color: #a78bfa; font-family: Manrope; font-size: 15px; text-decoration: none; border-bottom: 1px solid rgba($monad, .5); }
+.monad-cta a:hover { color: #fff; border-color: #fff; }
+.footer-built { color: #9ca3af; font-family: Manrope; font-size: 12px; margin-top: 8px; }
+.footer-built a { color: #a78bfa; text-decoration: none; }
+
+@media (max-width: 767.98px) {
+  .section-monad { margin-top: 100px; }
+  .monad-flow { grid-template-columns: 1fr; gap: 0; }
+  .flow-link { width: 2px; height: 36px; margin: 0 auto; background: linear-gradient(#2a2a2a, rgba($monad,.8), #2a2a2a); }
+  .flow-link::after { left: 0; top: -30%; width: 100%; height: 30%; animation-name: flow-pulse-v; }
+  @keyframes flow-pulse-v { to { top: 100%; } }
+  .monad-points .card { border-left: none; border-top: 1px solid #4b5563; }
+  .monad-points .col-md-4:first-child .card { border-top: none; }
+  .scroll-section { height: 300vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-link::after { animation: none; }
+  .card, .card img { transition: none; }
+}
+
+// ===== BOT Chain section (sits under the Monad section) =====
+.section-bot { margin-top: 150px; }
+.bot-panel {
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  max-width: 960px; margin: 0 auto 60px; padding: 36px 40px;
+  border: 1px solid #2a2a2a; border-radius: 16px;
+  background: radial-gradient(60% 120% at 0% 0%, rgba(146,125,232,.16), rgba(146,125,232,.02));
+}
+.bot-panel-logo img { height: 44px; width: auto; max-width: 100%; object-fit: contain; }
+.bot-panel-text { flex: 1; font-family: Manrope; }
+.bot-panel-text h3 { color: #fff; font-weight: 500; font-size: 23px; line-height: 140%; margin-bottom: 8px; }
+.bot-panel-text p { color: #9ca3af; font-size: 15px; line-height: 150%; letter-spacing: -.2px; margin: 0; }
+.bot-panel-links { display: flex; flex-direction: column; gap: 10px; }
+.bot-panel-links a {
+  font-family: Manrope; font-size: 14px; text-align: center; text-decoration: none; color: #fff;
+  padding: 10px 20px; border: 1px solid #927DE8; border-radius: 8px; white-space: nowrap;
+  transition: background .2s;
+  &:hover { background: rgba(146,125,232,.2); }
+}
+.chain-points .card { border-left: 1px solid #4b5563; }
+.chain-points .col-md-4:first-child .card { border-left: none; }
+
+@media (max-width: 767.98px) {
+  .section-bot { margin-top: 100px; }
+  .bot-panel { flex-direction: column; align-items: flex-start; padding: 28px 22px; gap: 24px; }
+  .bot-panel-links { flex-direction: row; flex-wrap: wrap; }
+  .chain-points .card { border-left: none; border-top: 1px solid #4b5563; }
+  .chain-points .col-md-4:first-child .card { border-top: none; }
+}
+@media (max-width: 991.98px) {
+  .multichain-logos .logos .chain-link img { height: 22px; width: auto; }
 }
